@@ -84,9 +84,10 @@ SECRET_KEY = 'uh*)w(rizbu=v%+f1)mhzl&amp;3a%ti(4qt#o#4proim--7nm^e^j'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    ('pyjade.ext.django.Loader',(
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader',
+    )),
 )
 
 MIDDLEWARE_CLASSES = (
@@ -121,6 +122,11 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+
+    #dependencies
+    'south',
+    'boto',
+    'django-storages',
 )
 
 # A sample logging configuration. The only tangible logging
